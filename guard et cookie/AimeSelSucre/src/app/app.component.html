@@ -1,0 +1,15 @@
+<div>
+  <label>
+    <input type="checkbox" [(ngModel)]="aimeLeSucre"> J’aime les choses sucrées !
+  </label>
+</div>
+<div>
+  <label>
+    <input type="checkbox" [(ngModel)]="aimeLeSel"> J’aime les choses salées !
+  </label>
+</div>
+<div>
+  <button (click)="jaiFaim()">J'ai faim !</button>
+</div>
+
+<router-outlet></router-outlet> <!-- Là où le contenu de la route sera affiché -->
