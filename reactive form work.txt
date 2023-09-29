@@ -1,0 +1,316 @@
+IcyHot
+icyhot96
+Invisible
+
+IcyHot — 12/20/2022 5:32 PM
+j pleurer kand j fait les trucs de dropdown et service
+R A M E N — 12/20/2022 6:09 PM
+sameee
+moi c'est dropdown et le test
+IcyHot — 12/20/2022 6:48 PM
+oue le test j direct copier dun labo et j ps tester lol
+R A M E N — 12/20/2022 7:32 PM
+ah okay lol
+IcyHot — 12/20/2022 10:36 PM
+eske va durant l exam tantot vs aviez push?
+R A M E N — 12/20/2022 10:42 PM
+???
+push quoi?? Y'a juste le teams d'évalué
+IcyHot — 12/21/2022 9:24 AM
+ouai jsp mais ya des classes ki ont commit dt push leur exam lol
+R A M E N — 12/21/2022 11:53 AM
+rip
+servent à rien
+T au cegep?
+IcyHot — 12/21/2022 5:14 PM
+lol no
+eske ta fait le exam de prog??
+ye tu le mm ke les autres?
+R A M E N — 12/21/2022 5:41 PM
+oui
+IcyHot — 02/02/2023 3:07 PM
+yo megan notre cours de prog dmn commence a kel hr
+R A M E N — 02/02/2023 3:30 PM
+Appli mobile??
+IcyHot — 02/02/2023 4:27 PM
+yup j etais pa la semaine passé
+R A M E N — 02/02/2023 4:34 PM
+Okay c'est 8h00
+IcyHot — 02/02/2023 5:00 PM
+ah wtf
+so on fini a 11:30?
+R A M E N — 02/02/2023 5:07 PM
+oui
+11h00
+Why?
+IcyHot — 02/02/2023 5:09 PM
+on fini a 11?
+paske jcroyais que le cours était 2:30
+so 5 h en totale
+R A M E N — 02/02/2023 5:10 PM
+Hein
+IcyHot — 02/02/2023 5:25 PM
+what?
+R A M E N — 04/06/2023 2:36 PM
+angular-data-grid : une librairie simple et légère pour créer des grilles de données avec Angular1.
+ngx-masonry : une librairie qui utilise le plugin Masonry pour créer des grilles de données responsives et dynamiques avec Angular1.
+angular2gridster : une librairie qui permet de créer des grilles de données avec des widgets redimensionnables et déplaçables avec Angular1.
+angular2-grid : une librairie qui offre des fonctionnalités de drag and drop, de redimensionnement et de nesting pour les grilles de données avec Angular1.
+ag-grid-angular : une librairie qui fournit une grille de données performante et riche en fonctionnalités pour Angular, avec des options de tri, de filtrage, de groupage, d’agrégation, etc.
+https://www.getapp.ca/sem/lean/directory/324/inventory-management/software?max_products=8&account_campaign_id=13810008895&account_adgroup_id=121855172622&target=inventory%20tracking%20solutions&ad_id=532101364272&matchtype=b&gclsrc=aw.ds&&utm_source=ps-google&utm_medium=ppc&utm_campaign=:1:GA:2:TLD-CA:3:All:4:EMEA:5:BAU:6:SOF:7:Desktop:8:BR:9:Inventory_Management&gclid=EAIaIQobChMI5KvvlPOV_gIVMefjBx0LpQ4ZEAAYAyAAEgI29fD_BwE
+GetApp
+Inventory Management Software
+Image
+IcyHot — 04/13/2023 8:40 PM
+yo megan eske dmn notre cours de prog est annulé ou nn?
+R A M E N — 04/13/2023 8:43 PM
+??
+IcyHot — 04/13/2023 8:44 PM
+non jfais que demander paske on aura android 3 jour de suite
+R A M E N — 04/13/2023 8:44 PM
+Normalement lui de vendredi non
+Oui c'est ca le principe 
+IcyHot — 04/13/2023 8:45 PM
+c ben nul sa
+R A M E N — Today at 10:22 PM
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+@Component({
+  selector: 'app-root',
+Expand
+Formatif4.txt
+3 KB
+ma reponse pour app.component.ts
+IcyHot — Today at 10:28 PM
+ahh merci bcp
+jvais l'essayer dmon bord
+R A M E N — Today at 10:28 PM
+C'est pas encore 100% fonctionnel
+Jte l'envois quand tout marche
+IcyHot — Today at 10:29 PM
+est ce que toi sa affiche une erreure quand t'ecris gnr 2 mots quand tu mets 3 comme nombre
+paske moi les error fonctionnent pas aussi c bizzare
+R A M E N — Today at 10:30 PM
+nop
+R A M E N — Today at 11:01 PM
+Salut
+J'ai trouuver
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+
+
+export class AppComponent implements OnInit{
+  form = this.fb.group({
+    chiffrefavoris: ['', [Validators.required, this.chiffreFavorisValidator ]],
+    description: ['',[Validators.required]],
+  }, { validators: [this.descriptionValidatorWords, this.descriptionValidatorLetters] });
+  // Le component contient une variable du même type que les champs du formulaire
+  formData?: Data;
+  constructor(private fb: FormBuilder) {  }
+  ngOnInit(): void {
+    // À chaque fois que les valeurs changent, notre propriétés formData sera mise à jour
+    this.form.valueChanges.subscribe(() => {
+      this.formData = this.form.value as Data;
+    });
+  }
+  chiffreFavorisValidator(control: AbstractControl): ValidationErrors | null {
+    const chiffreFavoris = control.value;
+    if (chiffreFavoris != null && (chiffreFavoris < 0 || chiffreFavoris > 9 || !/^\d$/.test(chiffreFavoris.toString()))) {
+      control.get('chiffrefavoris')?.setErrors({ chiffreFavorisDigit: true });
+      return { chiffreFavorisDigit: true };
+    }else {control.get('chiffrefavoris')?.setErrors(null);}
+    return null;
+  }
+
+  descriptionValidatorWords(control: AbstractControl): ValidationErrors | null {
+
+    const description = control.get('description')?.value;
+    const chiffrefavoris = control.get('chiffrefavoris')?.value;
+    console.log(description);
+    console.log(chiffrefavoris);
+    if (description != null && chiffrefavoris != null) {
+      
+      const words = description.trim().split(/\s+/);
+      if (words.length != chiffrefavoris) {
+        control.get('description')?.setErrors({ descriptionWords: true });
+        
+        return { descriptionWords: true };
+      }else {control.get('description')?.setErrors(null);}
+    }
+    return null;
+  }
+  descriptionValidatorLetters(control: AbstractControl): ValidationErrors | null {
+
+    const description = control.get('description')?.value;
+    const chiffreFavoris = control.get('chiffrefavoris')?.value;
+
+    if (description != null && chiffreFavoris != null) {
+      const letters = description.replace(/\s/g, '');
+
+      if (letters.length != chiffreFavoris) {
+        control.get('description')?.setErrors({ descriptionLetters: true });
+        return { descriptionLetters: true };
+      }else {control.get('description')?.setErrors(null);}
+    }
+    return null;
+  }
+}
+
+
+// interface qui décris le type du formulaire
+interface Data { 
+  chiffrefavoris?: number | null ; 
+  description?: string | null ; 
+}
+
+HTML 
+<div style="width: 100%;height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column">
+  <mat-card class="artist-card" style="margin: 16px; padding: 16px;">
+      
+    <form [formGroup]="form">
+      <mat-form-field style="width: 100%">
+        <input matInput type="number" placeholder="Votre chiffre favoris" formControlName="chiffrefavoris" name="chiffrefavoris">
+        <mat-error *ngIf="form.get('chiffrefavoris')?.hasError('required')">
+          Votre chiffre favoris est <strong>requis</strong>
+        </mat-error>
+        <mat-error *ngIf="form.get('chiffrefavoris')?.hasError('chiffreFavorisDigit')">
+          Le chiffre doit etre un chiffre entre  <strong>0 et 9</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field style="width: 100%">
+        <input matInput type="text" placeholder="Ici une description" formControlName="description" name="description">
+        <mat-error *ngIf="form.get('description')?.hasError('required')">
+         La description est <strong>requise</strong>
+        </mat-error>
+        <mat-error *ngIf="form.get('description')?.hasError('descriptionWords')">
+          Votre description doit contenir <strong>requise</strong>
+        </mat-error>
+        <mat-error *ngIf="form.get('description')?.hasError('descriptionLetters')">
+          Votre description doit contenir <strong>requise</strong>
+        </mat-error>
+... (5 lines left)
+Collapse
+Formatif4.txt
+5 KB
+IcyHot — Today at 11:03 PM
+jparle avk le prof depuis tantot et sa aide tlm pas
+merci 🙏
+﻿
+R A M E N
+ramen8593
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+
+
+export class AppComponent implements OnInit{
+  form = this.fb.group({
+    chiffrefavoris: ['', [Validators.required, this.chiffreFavorisValidator ]],
+    description: ['',[Validators.required]],
+  }, { validators: [this.descriptionValidatorWords, this.descriptionValidatorLetters] });
+  // Le component contient une variable du même type que les champs du formulaire
+  formData?: Data;
+  constructor(private fb: FormBuilder) {  }
+  ngOnInit(): void {
+    // À chaque fois que les valeurs changent, notre propriétés formData sera mise à jour
+    this.form.valueChanges.subscribe(() => {
+      this.formData = this.form.value as Data;
+    });
+  }
+  chiffreFavorisValidator(control: AbstractControl): ValidationErrors | null {
+    const chiffreFavoris = control.value;
+    if (chiffreFavoris != null && (chiffreFavoris < 0 || chiffreFavoris > 9 || !/^\d$/.test(chiffreFavoris.toString()))) {
+      control.get('chiffrefavoris')?.setErrors({ chiffreFavorisDigit: true });
+      return { chiffreFavorisDigit: true };
+    }else {control.get('chiffrefavoris')?.setErrors(null);}
+    return null;
+  }
+
+  descriptionValidatorWords(control: AbstractControl): ValidationErrors | null {
+
+    const description = control.get('description')?.value;
+    const chiffrefavoris = control.get('chiffrefavoris')?.value;
+    console.log(description);
+    console.log(chiffrefavoris);
+    if (description != null && chiffrefavoris != null) {
+      
+      const words = description.trim().split(/\s+/);
+      if (words.length != chiffrefavoris) {
+        control.get('description')?.setErrors({ descriptionWords: true });
+        
+        return { descriptionWords: true };
+      }else {control.get('description')?.setErrors(null);}
+    }
+    return null;
+  }
+  descriptionValidatorLetters(control: AbstractControl): ValidationErrors | null {
+
+    const description = control.get('description')?.value;
+    const chiffreFavoris = control.get('chiffrefavoris')?.value;
+
+    if (description != null && chiffreFavoris != null) {
+      const letters = description.replace(/\s/g, '');
+
+      if (letters.length != chiffreFavoris) {
+        control.get('description')?.setErrors({ descriptionLetters: true });
+        return { descriptionLetters: true };
+      }else {control.get('description')?.setErrors(null);}
+    }
+    return null;
+  }
+}
+
+
+// interface qui décris le type du formulaire
+interface Data { 
+  chiffrefavoris?: number | null ; 
+  description?: string | null ; 
+}
+
+HTML 
+<div style="width: 100%;height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column">
+  <mat-card class="artist-card" style="margin: 16px; padding: 16px;">
+      
+    <form [formGroup]="form">
+      <mat-form-field style="width: 100%">
+        <input matInput type="number" placeholder="Votre chiffre favoris" formControlName="chiffrefavoris" name="chiffrefavoris">
+        <mat-error *ngIf="form.get('chiffrefavoris')?.hasError('required')">
+          Votre chiffre favoris est <strong>requis</strong>
+        </mat-error>
+        <mat-error *ngIf="form.get('chiffrefavoris')?.hasError('chiffreFavorisDigit')">
+          Le chiffre doit etre un chiffre entre  <strong>0 et 9</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field style="width: 100%">
+        <input matInput type="text" placeholder="Ici une description" formControlName="description" name="description">
+        <mat-error *ngIf="form.get('description')?.hasError('required')">
+         La description est <strong>requise</strong>
+        </mat-error>
+        <mat-error *ngIf="form.get('description')?.hasError('descriptionWords')">
+          Votre description doit contenir <strong>requise</strong>
+        </mat-error>
+        <mat-error *ngIf="form.get('description')?.hasError('descriptionLetters')">
+          Votre description doit contenir <strong>requise</strong>
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="!form.valid">Enregistrer</button>
+    </form>
+  </mat-card>
+</div>
+Formatif4.txt
+5 KB

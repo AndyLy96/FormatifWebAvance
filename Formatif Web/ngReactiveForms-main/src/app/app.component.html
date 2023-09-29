@@ -1,0 +1,29 @@
+<h1>Test Reactive Forms</h1>
+<div style="width: 100%;height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column">
+  <mat-card class="artist-card" style="margin: 16px; padding: 16px;">
+    <form [formGroup]="questionForm">
+      <mat-form-field style="width: 100%">
+        <input matInput type="number" placeholder="Nombre préféré" formControlName="nombre" name="nombre">
+        <mat-error *ngIf="questionForm.get('nombre')?.hasError('nameInEmail')">
+          Entrer un nombre valide
+        </mat-error>
+        <mat-error *ngIf="questionForm.get('nombre')?.hasError('required')">
+          Le nombre est <strong>requis</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field style="width: 100%">
+        <input matInput type="text" placeholder="Description" formControlName="description" name="description">
+        <mat-error *ngIf="questionForm.hasError('nameInEmail')">
+          pas meme nombre de mot
+         </mat-error>
+         <mat-error *ngIf="questionForm.hasError('nbLettre')">
+           pas bon nombre de mot
+         </mat-error>
+        <mat-error *ngIf="questionForm.get('description')?.hasError('required')">
+          Une description est <strong>requise</strong>
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="!questionForm.valid">Enregistrer</button>
+    </form>
+  </mat-card>
+</div>
